@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h1 class="mb-3"><%= @flat.name %></h1>
+  <% if @flat.picture_url.present? %>
+    <%= image_tag @flat.picture_url, class: "img-fluid rounded mb-4", style: "max-height: 400px; object-fit: cover;" %>
+  <% else %>
+    <%= image_tag "https://picsum.photos/800/400", class: "img-fluid rounded mb-4", style: "max-height: 400px; object-fit: cover;" %>
+  <% end %>
+  <p class="text-muted"><i class="fas fa-map-marker-alt"></i> <%= @flat.address %></p>
+
+  <div class="card p-3 mb-4 shadow-sm">
+    <h4 class="card-title">Description</h4>
+    <p class="card-text"><%= @flat.description %></p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card p-3 shadow-sm">
+        <h4 class="card-title">Détails</h4>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-users"></i> Nombre d'invités : **<%= @flat.number_of_guests %>**</li>
+          <li><i class="fas fa-dollar-sign"></i> Prix par nuit : **<%= @flat.price_per_night %>**</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to "Retour à la liste des appartements", flats_path, class: "btn btn-secondary" %>
+  <%= link_to "Modifier l'appartement", edit_flat_path(@flat), class: "btn btn-warning" %>
+  <%= link_to "Supprimer l'appartement", flat_path(@flat), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cet appartement ?" }, class: "btn btn-danger" %> </div>
+</div>

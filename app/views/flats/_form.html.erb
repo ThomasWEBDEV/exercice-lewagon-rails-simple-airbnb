@@ -1,0 +1,9 @@
+<%= simple_form_for @flat do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :price_per_night %>
+  <%= f.input :number_of_guests %>
+  <%= f.input :picture_url, label: "Image URL (Unsplash ou autre)" %> <%= f.submit class: "btn btn-primary" %>
+  <%= link_to "Retour à la liste", flats_path, class: "btn btn-secondary ms-2" %>
+<% end %>
